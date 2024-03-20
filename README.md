@@ -1,6 +1,6 @@
 # Drupal-mongo-live-bitcoin-chart
 
-It as experimental Drupal project, utlizing mongoDB for storage of bitcoin data.
+It an experimental Drupal project, utlizing mongoDB for storage of bitcoin data.
 For Plots using Plotly.js
 Charts type - line and candle
 For data using free public API by https://min-api.cryptocompare.com
