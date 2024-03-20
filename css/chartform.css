@@ -1,0 +1,24 @@
+.row-container1{
+   display: flex;
+   justify-content: space-between;
+   flex-direction: row;
+}
+
+.custom-center{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+#candlestick-chart{
+height: 500px;
+}
+
+#current-price{
+    font-weight: bold;
+}
+#time-frame-low, #time-frame-high 
+{
+    font-weight: bold;
+}

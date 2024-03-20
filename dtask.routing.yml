@@ -1,0 +1,38 @@
+
+dtask.saveDatatoMongo: #Save Data into MongoDB
+  path: '/save/mongodb'
+  defaults:
+    _controller: '\Drupal\dtask\Controller\MongoDBWriter::saveData'
+    methods:  [POST]
+    _title: 'Check connection and get language mappings'
+  requirements:
+    _permission: 'access content'
+
+
+dtask.getDataforCandleChart:  #Get Data for CANDLE chart from MongoDB
+  path: '/mongodb/getDataforCandleChart'
+  defaults:
+    _controller: '\Drupal\dtask\Controller\MongoDBWriter::getDataforCandleChart'
+    methods:  [GET,POST]
+    _title: 'Use this to get Data for BTC line Chart'
+  requirements:
+    _permission: 'access content'
+
+dtask.getDataforLineChart:  #Get Data for LINE chart from MongoDB
+  path: '/mongodb/getDataforLineChart'
+  defaults:
+    _controller: '\Drupal\dtask\Controller\MongoDBWriter::getDataforLineChart'
+    methods:  [GET,POST]
+    _title: 'Use this to get Data for BTC line Chart'
+  requirements:
+    _permission: 'access content'
+
+
+dtask.livechart:    #BTC Chart page
+  path: '/chart'
+  defaults:
+    _controller: '\Drupal\dtask\Controller\LiveChart::chart'
+    methods:  [POST]
+    _title: 'LIVE BTC Price  '
+  requirements:
+    _permission: 'access content'

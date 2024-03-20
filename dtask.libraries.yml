@@ -1,0 +1,25 @@
+requestData:
+  js:
+    js/requestData.js: {}
+  dependencies:
+    - core/jquery
+
+realtime:
+  js:
+    js/realtime.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+plotly:
+  js:
+    js/plotly-latest.min.js: {}
+  dependencies:
+    - core/jquery
+
+chartformcss:
+  css:
+    theme:
+      css/chartform.css: {}
+
+

@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+
+
+//Get Timeframe mongo query
+function getTimeframQUery($data){
+  if($data['timeframe'] == "5mins"){
+    $ts = time() - (5 * 60);
+    $query = ['timestamp' => ['$gt' => $ts]];
+}
+elseif($data['timeframe'] == "1hour"){
+    $ts = time() - (3600);
+    $query = ['timestamp' => ['$gt' => $ts]];
+}
+elseif($data['timeframe'] == "6hour"){
+    $ts = time() - (21600);
+    $query = ['timestamp' => ['$gt' => $ts]];
+}
+elseif($data['timeframe'] == "24hour"){
+    $ts = time() - (86400 );
+    $query = ['timestamp' => ['$gt' => $ts]];
+}
+return $query;
+}
+
+function dtask_page_attachments_alter(array &$attachments) {
+
+  $attachments['#attached']['library'][] = 'dtask/plotly';
+  // Attach the library to all Chart page.
+  if(\Drupal::routeMatch()->getRouteName() == 'dtask.livechart'){
+    $attachments['#attached']['library'][] = 'dtask/requestData';
+    $attachments['#attached']['library'][] = 'dtask/realtime';
+ 
+    $attachments['#attached']['library'][] = 'dtask/chartformcss';
+  }
+
+
+}
+/**
+ * Implementing hook_theme().
+ */
+function dtask_theme($existing, $type, $theme, $path) {
+
+  return array(
+    'custom_page' => array(
+      'variables' => array('items' => array(), 'current_price' => '$', 'chart' => '', 'form' => '')
+    )
+  );
+}
+?>
